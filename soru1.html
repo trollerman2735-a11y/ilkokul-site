@@ -1,0 +1,297 @@
+ <!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>İlkokul - Atatürk Kalp Tema</title>
+  <style>
+    /* --- Genel --- */
+    :root{
+      --bg:#fff7f8;
+      --accent:#c71f3a; /* kalp rengi */
+      --muted:#555;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#fff 0%, #fff7f8 100%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+    }
+
+    /* --- Başlık / Atatürk Kalp --- */
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:110px;
+      height:110px;
+      border-radius:18px;
+      background: radial-gradient(circle at 30% 25%, #fff 0%, rgba(255,255,255,0.5) 5%, transparent 30%), var(--card);
+      box-shadow: 0 6px 18px rgba(199,31,58,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      flex-shrink:0;
+    }
+    /* Kalp + Atatürk yazısı */
+    .logo .heart{
+      position:relative;
+      width:64px;height:64px;
+      transform:translateY(-4px);
+    }
+    .heart:before, .heart:after{
+      content:"";
+      position:absolute;
+      left:32px;top:0;
+      width:32px;height:52px;
+      background:var(--accent);
+      border-radius:20px 20px 0 0;
+      transform-origin:0 100%;
+    }
+    .heart:after{
+      left:0;transform-origin:100% 100%;
+    }
+    .logo .text{
+      position:absolute;
+      bottom:8px;
+      left:8px;
+      right:8px;
+      text-align:center;
+      font-weight:700;
+      font-size:11px;
+      color:#fff;
+      text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    }
+
+    h1{font-size:20px;margin:0}
+    p.lead{margin:4px 0 0;color:#7a7a7a;font-size:13px}
+
+    /* --- Layout --- */
+    .container{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    nav.card{
+      padding:14px;
+      border-radius:12px;
+      background:var(--glass);
+      backdrop-filter: blur(6px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      height:fit-content;
+    }
+    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    nav a{
+      display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600
+    }
+    nav a:hover{background:rgba(199,31,58,0.06);color:var(--accent)}
+
+    main .card{
+      padding:16px;border-radius:12px;background:var(--card);box-shadow:0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    /* --- Öğrenci tablosu --- */
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #f0e8ea}
+    thead th{background:transparent;color:var(--accent);font-weight:800}
+    .gender{font-size:13px;font-weight:700;color:#333}
+
+    /* --- Alfabe ve Matematik bölümü --- */
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .alphabet{display:flex;flex-wrap:wrap;gap:8px}
+    .letter{min-width:44px;padding:8px;border-radius:8px;background:linear-gradient(180deg,#fff,#fff7f8);text-align:center;font-weight:700}
+
+    /* --- Responsive --- */
+    @media (max-width:900px){
+      .container{grid-template-columns:1fr;}
+      nav.card{display:flex;overflow:auto;gap:8px}
+      nav ul{flex-direction:row}
+      .grid2{grid-template-columns:1fr}
+    }
+
+    /* küçük not */
+    footer{margin-top:16px;text-align:center;font-size:12px;color:#888}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="download.jpg" alt="Atatürk" style="width:100%;height:100%;object-fit:cover;border-radius:18px;">
+    </div>
+      <div class="text">ATATÜRK</div>
+    </div>
+    <div>
+      <h1>1-A Sınıfı - Atatürk Kalp Teması</h1>
+      <p class="lead">Atatürk sevgisi, alfabe ve matematikle 4. sınıfa kadar içerik — 26 öğrenci</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="card" aria-label="Ana menü">
+      <ul>
+        <li><a href="#ogrenciler">Öğrenciler (Liste)</a></li>
+        <li><a href="#atatürk">Atatürk</a></li>
+        <li><a href="#alfabe">Alfabe</a></li>
+        <li><a href="#matematik">Matematik (1-4. Sınıf)</a></li>
+        <li><a href="#iletisim">İletişim / Öğretmen Notları</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Öğrenciler tablosu -->
+      <section id="ogrenciler" class="card" aria-labelledby="ogrenciBaslik">
+        <h2 id="ogrenciBaslik">Öğrenci Listesi (26)</h2>
+        <p style="margin-top:6px;margin-bottom:12px;color:#666">Kızlar ve erkekler aşağıdaki tablolarda listelenmiştir.</p>
+
+        <table aria-describedby="ogrenciAciklama">
+          <thead>
+            <tr><th>İsim<\/th><th>Cinsiyet<\/th><th>Bilgi<\/th></tr>
+          </thead>
+          <tbody>
+            <!-- Kızlar (12) -->
+            <tr><td class="gender">Ecrin</td><td>Kız</td><td>Kipa'da Gaziemir</td></tr>
+            <tr><td class="gender">Belçim</td><td>Kız</td><td>⭐ Kipa'da Gaziemir</td></tr>
+            <tr><td class="gender">Ela</td><td>Kız</td><td>Özel okulda Gaziemir</td></tr>
+            <tr><td class="gender">Öykü</td><td>Kız</td><td>Okulu tam bilinmiyor - Gaziemir</td></tr>
+            <tr><td class="gender">Elanur</td><td>Kız</td><td>Bilgi yok, akıllı bir kızdı - Gediz tarafı</td></tr>
+            <tr><td class="gender">Derin</td><td>Kız</td><td>Okulu bilinmiyor - Gaziemir</td></tr>
+            <tr><td class="gender">Nil</td><td>Kız</td><td>Gaziemir'de özel okul</td></tr>
+            <tr><td class="gender">Asya</td><td>Kız</td><td>Menderes - Okulu bilinmiyor</td></tr>
+            <tr><td class="gender">Tuğçe</td><td>Kız</td><td>Murat Yıldız - Gaziemir</td></tr>
+            <tr><td class="gender">Şevval</td><td>Kız</td><td>İzmir Atatürk - Gaziemir</td></tr>
+            <tr><td class="gender">Neva</td><td>Kız</td><td>Gaziemir (okul bilinmiyor)</td></tr>
+            <tr><td class="gender">Defne</td><td>Kız</td><td>Kipa'da Gaziemir</td></tr>
+
+            <!-- Erkekler (14) -->
+            <tr><td class="gender">Kayra</td><td>Erkek</td><td>Okulu bilinmiyor - Gaziemir</td></tr>
+            <tr><td class="gender">Egemen</td><td>Erkek</td><td>İzmir Atatürk - Gaziemir</td></tr>
+            <tr><td class="gender">Suat</td><td>Erkek</td><td>Anka Koleji - Gaziemir</td></tr>
+            <tr><td class="gender">Efe S.</td><td>Erkek</td><td>Ankara - Okul bilinmiyor</td></tr>
+            <tr><td class="gender">Efe Y.</td><td>Erkek</td><td></td></tr>
+            <tr><td class="gender">Eren</td><td>Erkek</td><td>GMTAL - Gaziemir</td></tr>
+            <tr><td class="gender">Onat</td><td>Erkek</td><td>Özel okul - Pancar</td></tr>
+            <tr><td class="gender">Tuna</td><td>Erkek</td><td>Fatma Ramazan - Gaziemir</td></tr>
+            <tr><td class="gender">Yusuf</td><td>Erkek</td><td>Gediz - Okul bilinmiyor</td></tr>
+            <tr><td class="gender">Ahmet E.</td><td>Erkek</td><td>Fatma Ramazan - Gaziemir</td></tr>
+            <tr><td class="gender">Mehmet E.</td><td>Erkek</td><td>Kipa - Gaziemir</td></tr>
+            <tr><td class="gender">Emir</td><td>Erkek</td><td>Fuyal - Gaziemir</td></tr>
+            <tr><td class="gender">Bulut</td><td>Erkek</td><td>Ankara - Okul bilinmiyor</td></tr>
+            <tr><td class="gender">Yunus</td><td>Erkek</td><td>GMTAL - Gaziemir</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Atatürk bölümü -->
+      <section id="atatürk" class="card" style="margin-top:16px">
+        <h2>Mustafa Kemal Atatürk</h2>
+        <p>Tüm milli bayramlarımız:</p>
+        <ul>
+          <li>29 Ekim — Cumhuriyet Bayramı</li>
+          <li>23 Nisan — Ulusal Egemenlik ve Çocuk Bayramı</li>
+          <li>19 Mayıs — Atatürk'ü Anma, Gençlik ve Spor Bayramı</li>
+          <li>30 Ağustos — Zafer Bayramı</li>
+          <li>15 Temmuz — Demokrasi ve Millî Birlik Günü</li>
+        </ul>
+      </section>
+
+      <!-- Alfabe -->
+      <section id="alfabe" class="card" style="margin-top:16px">
+        <h2>Alfabe</h2>
+        <p>A'dan Z'ye örnek kelimeler:</p>
+        <div class="alphabet">
+          <div class="letter">A — Arı</div>
+          <div class="letter">B — Balık</div>
+          <div class="letter">C — Ceviz</div>
+          <div class="letter">Ç — Çiçek</div>
+          <div class="letter">D — Deniz</div>
+          <div class="letter">E — Elma</div>
+          <div class="letter">F — Fındık</div>
+          <div class="letter">G — Gemi</div>
+          <div class="letter">Ğ — Yağ</div>
+          <div class="letter">H — Halı</div>
+          <div class="letter">I — Irmak</div>
+          <div class="letter">İ — İnek</div>
+          <div class="letter">J — Jandarma</div>
+          <div class="letter">K — Kedi</div>
+          <div class="letter">L — Lamba</div>
+          <div class="letter">M — Masa</div>
+          <div class="letter">N — Nar</div>
+          <div class="letter">O — Orman</div>
+          <div class="letter">Ö — Ördek</div>
+          <div class="letter">P — Portakal</div>
+          <div class="letter">R — Rüzgar</div>
+          <div class="letter">S — Su</div>
+          <div class="letter">Ş — Şemsiye</div>
+          <div class="letter">T — Top</div>
+          <div class="letter">U — Uçak</div>
+          <div class="letter">Ü — Üzüm</div>
+          <div class="letter">V — Vazo</div>
+          <div class="letter">Y — Yağmur</div>
+          <div class="letter">Z — Zeytin</div>
+        </div>
+      </section>
+
+      <!-- Matematik 1-4 -->
+      <section id="matematik" class="card" style="margin-top:16px">
+        <h2>Matematik (1-4. Sınıf - Özet)</h2>
+        <div class="grid2">
+          <div>
+            <h3>1. Sınıf</h3>
+            <ul>
+              <li>Sayıları tanıma (0-100)</li>
+              <li>Toplama ve çıkarma (temel)</li>
+              <li>Geometrik şekiller: kare, üçgen, daire</li>
+            </ul>
+          </div>
+          <div>
+            <h3>2. Sınıf</h3>
+            <ul>
+              <li>Tek/çift sayılar, sayı çizelgeleri</li>
+              <li>Toplama/çıkarma ile problem çözme</li>
+              <li>Uzunluk ölçüleri ve saat</li>
+            </ul>
+          </div>
+          <div>
+            <h3>3. Sınıf</h3>
+            <ul>
+              <li>Çarpma işleminin temelleri</li>
+              <li>Bölme giriş</li>
+              <li>Kesirlerin ilk adımları</li>
+            </ul>
+          </div>
+          <div>
+            <h3>4. Sınıf</h3>
+            <ul>
+              <li>Çarpma, bölme problemleri</li>
+              <li>Ondalık kesirlere giriş (basit)</li>
+              <li>Alan ve çevre (temel uygulamalar)</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:8px;color:#666">Öğretmen notu: Her başlığa kısa alıştırma eklenebilir (örn. 5 adet toplama örneği).</p>
+      </section>
+
+      <section id="iletisim" class="card" style="margin-top:16px">
+        <h2>İletişim / Öğretmen Notları</h2>
+        <p>Buraya öğretmen isimleri, sınıf kuralları veya haftalık plan eklenecektir.</p>
+      </section>
+       
+      <footer>
+        <div>Bu sayfa örnek bir şablondur. İsimler kullanıcı tarafından sağlanmıştır.</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
